@@ -9,17 +9,7 @@ function App() {
 
   return (
     <>
-    <div className="continer">
-      <div className="row">
-      <WeatherForecast/>
-      </div>
-      <div className="row">
-          <div className="col-4"><Card/> </div>
-          <div className="col-4"><Card/> </div>
-          <div className="col-4"><Card/> </div>
-     
-      </div>
-    </div>
+    
        
     </>
   )

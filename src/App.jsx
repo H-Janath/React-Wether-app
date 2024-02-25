@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Card from './component/card'
+import WeatherForecast from './component/main-card'
 
 
 function App() {
@@ -8,7 +9,18 @@ function App() {
 
   return (
     <>
-        <Card/>
+    <div className="continer">
+      <div className="row">
+      <WeatherForecast/>
+      </div>
+      <div className="row">
+          <div className="col-4"><Card/> </div>
+          <div className="col-4"><Card/> </div>
+          <div className="col-4"><Card/> </div>
+     
+      </div>
+    </div>
+       
     </>
   )
 }

@@ -11,7 +11,19 @@ function WeatherForecast() {
     const handleFetchWeather = () => {
         fetchWeatherData(city);
     }
-
+    const fetchWeatherData = async (cityName) => {
+        try {
+            // Make a fetch request to your weather API
+            const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=2aa4ba446ebf4d39bd685435233012&q=${cityName}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch weather data');
+            }
+            const data = await response.json();
+            setWeatherData(data);
+        } catch (error) {
+            console.error('Error fetching weather data:', error.message);
+        }
+    };
    
 
    

@@ -3,6 +3,7 @@
 function Card() {
     return (
       <>
+
     <div>
       <div className="card" style={{ color: '#4B515D', borderRadius: '35px' }}>
         <div className="card-body p-4">

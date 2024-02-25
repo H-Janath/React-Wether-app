@@ -8,7 +8,17 @@ function App() {
  
   return (
     <>
-    <MainCard/>
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-6">
+        <MainCard/>
+        </div>
+        <div className="col-lg-6">
+     
+        </div>
+      </div>
+    </div>
+    
     </>
   )
 }

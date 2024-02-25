@@ -13,6 +13,7 @@
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.1",
     "react-select-async-paginate": "^0.7.3"
   },
   "devDependencies": {

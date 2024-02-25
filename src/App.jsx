@@ -1,4 +1,5 @@
 import './App.css'
+import MainCard from './assets/componenets/mainCard'
 
 
 
@@ -6,7 +7,9 @@ import './App.css'
 function App() {
  
   return (
-    <></>
+    <>
+    <MainCard/>
+    </>
   )
 }
 

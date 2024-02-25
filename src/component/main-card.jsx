@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
 function WeatherForecast() {
-
+    const [city,setCity] = useState('');
+    const [wetherData,setWetherData] = useState(null);
+    
+    const handleInputChange = (event) =>{
+        setCity(event.target.value);
+    };
 
     return (
         <div className="container py-5 h-100">

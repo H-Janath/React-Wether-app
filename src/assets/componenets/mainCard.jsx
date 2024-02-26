@@ -6,7 +6,9 @@ function MainCard() {
     const [city,setCity] = useState("");
 
     const fetchWetherdata = () =>{
- 
+        let repo = {
+            method: "GET",
+        };
     }
     
     return (

@@ -4,23 +4,26 @@ import { useState } from "react";
 function MainCard() {
 
     const [city, setCity] = useState("");
+    const [wetherData, setwetherData] = useState(null);
 
-    const fetchWetherdata = () => {
-        let repo = {
-            method: "GET",
-        };
-        fetch(
-            `http://api.weatherapi.com/v1/current.json?key=9f41194522374b5389190824233012&q=${city}`,
-            repo
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-            })
-            .then((error)=> console.log("Error",error));
-
-
+    const handleFetchWether = () =>{
+        fetchWetherdata(city);
     }
+
+    const fetchWetherdata = async (cityName) => {
+       try{
+        //make fetch request to your wether API
+
+        const response  =  await fetch(`http://api.weatherapi.com/v1/current.json?key=9f41194522374b5389190824233012&q=${cityName}`);
+        if(!response.ok){
+            throw new Error('Failed to fetch wether data');
+        }
+        const data = await response.json();
+        setwetherData(data);
+       }catch{
+        console.log('Error fetchong wether data',error.message);
+       }
+    };
 
     return (
         <>
@@ -36,7 +39,7 @@ function MainCard() {
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                     />
-                    <a href="#!" type="button" onClick={fetchWetherdata}>
+                    <a href="#!" type="button" onClick={handleFetchWether}>
                         <span
                             className="input-group-text border-0 fw-bold"
                             id="search-addon"

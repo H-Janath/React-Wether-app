@@ -6,7 +6,7 @@ function MainCard() {
     const [city,setCity] = useState("");
 
     const fetchWetherdata = () =>{
-        
+ 
     }
     
     return (

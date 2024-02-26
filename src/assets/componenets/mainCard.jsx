@@ -9,6 +9,11 @@ function MainCard() {
         let repo = {
             method: "GET",
         };
+        fetch(
+            `http://api.weatherapi.com/v1/current.json?key=9f41194522374b5389190824233012&q=${city}`,
+            repo
+        )
+        
     }
     
     return (

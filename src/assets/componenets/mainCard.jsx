@@ -3,9 +3,9 @@ import { useState } from "react";
 
 function MainCard() {
 
-    const [city,setCity] = useState("");
+    const [city, setCity] = useState("");
 
-    const fetchWetherdata = () =>{
+    const fetchWetherdata = () => {
         let repo = {
             method: "GET",
         };
@@ -13,9 +13,15 @@ function MainCard() {
             `http://api.weatherapi.com/v1/current.json?key=9f41194522374b5389190824233012&q=${city}`,
             repo
         )
-        
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .then((error)=> console.log("Error",error));
+
+
     }
-    
+
     return (
         <>
             <div className="">
@@ -28,7 +34,7 @@ function MainCard() {
                         aria-label="Search"
                         aria-describedby="search-addon"
                         value={city}
-                        onChange={(e)=> setCity(e.target.value)}
+                        onChange={(e) => setCity(e.target.value)}
                     />
                     <a href="#!" type="button" onClick={fetchWetherdata}>
                         <span

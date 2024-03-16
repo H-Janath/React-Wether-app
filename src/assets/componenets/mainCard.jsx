@@ -1,35 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-
-function MainCard() {
+function MainCard(props) {
 
     const [city, setCity] = useState("");
     const [wetherData, setwetherData] = useState(null);
 
-    const handleFetchWether = () =>{
-        fetchWetherdata(city);
+    const handleFetchWether = () => {
+        fetchWetherdataUser(city);
     }
+    useEffect(() => {
+        fetchWetherdata();
+    });
 
-    const fetchWetherdata = async (cityName) => {
-       try{
-        //make fetch request to your wether API
+    const fetchWetherdata = async () => {
+        try {
+            const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=4a2437807b3d44fa9de42158241603&q=${props.lat},${props.log}`);
+            console.log(props.lat);
+            console.log(props.log);
+            if (!response.ok) {
+                throw new Error('Failed to fetch wether data');
+            }
+            const data = await response.json();
 
-        const response  =  await fetch(`http://api.weatherapi.com/v1/current.json?key=9f41194522374b5389190824233012&q=${cityName}`);
-        if(!response.ok){
-            throw new Error('Failed to fetch wether data');
+            setwetherData(data);
+
+        } catch {
+            console.error('Error fetchong wether data', error.message);
         }
-        const data = await response.json();
-        
-        setwetherData(data);
-       
-       }catch{
-        console.error('Error fetchong wether data',error.message);
-       }
     };
+    const fetchWetherdataUser = async (city) => {
+        try {
+            const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=4a2437807b3d44fa9de42158241603&q=${city}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch wether data');
+            }
+            const data = await response.json();
 
+            setwetherData(data);
+
+        } catch {
+            console.error('Error fetchong wether data', error.message);
+        }
+    };
     return (
         <>
-             <div className="">
+            <div className="">
                 <h3 className="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
                 <div className="input-group rounded mb-3">
                     <input
@@ -50,7 +65,7 @@ function MainCard() {
                         </span>
                     </a>
                 </div>
-                {wetherData &&  <div className="card bg-body-secondary " style={{ color: "#4B515D", borderRadius: 35 }}>
+                {wetherData && <div className="card " style={{ color: "#4B515D", borderRadius: 35 }}>
                     <div className="card-body p-4">
                         <div className="d-flex">
                             <h6 className="flex-grow-1">{wetherData.location.region}</h6>

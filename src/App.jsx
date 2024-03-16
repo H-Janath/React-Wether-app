@@ -12,10 +12,10 @@ function App() {
     <div className="container">
       <div className="row">
         <div className="col-lg-6">
-        <MainCard/>
+        <LocationFetcher/>
         </div>
         <div className="col-lg-6">
-          <LocationFetcher/>
+     
         </div>
       </div>
     </div>

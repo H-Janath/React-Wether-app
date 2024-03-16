@@ -10,7 +10,7 @@ function MainCard(props) {
     }
     useEffect(() => {
         fetchWetherdata();
-    });
+    },[location]);
 
     const fetchWetherdata = async () => {
         try {

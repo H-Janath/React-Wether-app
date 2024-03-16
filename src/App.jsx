@@ -1,4 +1,5 @@
 import './App.css'
+import LocationFetcher from './assets/componenets/Location'
 import MainCard from './assets/componenets/mainCard'
 
 
@@ -14,7 +15,7 @@ function App() {
         <MainCard/>
         </div>
         <div className="col-lg-6">
-     
+          <LocationFetcher/>
         </div>
       </div>
     </div>

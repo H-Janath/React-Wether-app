@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import MainCard from "./mainCard";
-
-
 function LocationFetcher() {
+    const [city,setCity] = useState('');
     const [location, setLocation] = useState(null);
     const [error, setError] = useState(null);
 
@@ -10,7 +9,6 @@ function LocationFetcher() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    console.log('position:', position); // Log the position object
                     if (position && position.coords) {
                         setLocation({
                             latitude: position.coords.latitude,
@@ -53,3 +51,4 @@ function LocationFetcher() {
 };
 
 export default LocationFetcher;
+//AIzaSyDrW-BwbZQGKjJe5TtOmU69KU1KUEeCkbc

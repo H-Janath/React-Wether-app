@@ -1,9 +1,5 @@
 import './App.css'
-import LocationFetcher from './assets/componenets/Location'
-import MainCard from './assets/componenets/mainCard'
-
-
-
+import LocationFetcher from './componenets/Location'
 
 function App() {
  

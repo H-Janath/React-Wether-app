@@ -15,8 +15,6 @@ function MainCard(props) {
     const fetchWetherdata = async () => {
         try {
             const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=4a2437807b3d44fa9de42158241603&q=${props.lat},${props.log}`);
-            console.log(props.lat);
-            console.log(props.log);
             if (!response.ok) {
                 throw new Error('Failed to fetch wether data');
             }

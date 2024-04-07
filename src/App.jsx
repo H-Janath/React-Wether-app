@@ -1,5 +1,7 @@
 import './App.css'
 import LocationFetcher from './componenets/Location'
+import SearchBox from './componenets/Search'
+
 
 function App() {
  
@@ -11,7 +13,7 @@ function App() {
         <LocationFetcher/>
         </div>
         <div className="col-lg-6">
-     
+            <SearchBox/>
         </div>
       </div>
     </div>
